@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import { useRouter } from "next/navigation";
-import { useSearchParam } from "react-use";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
 const UpdatePrompt = () => {
   const router = useRouter();
-  const promptId = useSearchParam("id");
+  const searchParams = useSearchParams();
+  const promptId = searchParams.get("id");
 
   const [post, setPost] = useState({ prompt: "", tag: "" });
   const [submitting, setIsSubmitting] = useState(false);
